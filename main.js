@@ -1,4 +1,3 @@
-const log = console.log;
 const draggableList = document.getElementById('draggable-list');
 const check = document.getElementById('check');
 
@@ -18,12 +17,12 @@ const richestPeople = [
 // Store list items
 const listItems = [];
 
-// Keep track the index of each list item
+// Keep track of the index of each list item
 let dragStartIndex;
 
 createList();
 
-// This function responsible to generate the list items
+// This function is responsible for generating the list of items
 // "Insert list items into DOM"
 function createList() {
   [...richestPeople]
@@ -57,18 +56,14 @@ function createList() {
 }
 
 function dragStart() {
-  // log('Event: ', 'dragStart');
   dragStartIndex = +this.closest('li').getAttribute('data-index');
-  // log(dragStartIndex);
 }
 
 function dragOver(e) {
-  // log('Event: ', 'dragOver');
   e.preventDefault();
 }
 
 function dragDrop() {
-  // log('Event: ', 'dragDrop');
   const dragEndIndex = +this.getAttribute('data-index');
 
   swapItems(dragStartIndex, dragEndIndex);
@@ -76,7 +71,7 @@ function dragDrop() {
   this.classList.remove('over');
 }
 
-// Swap list items that are drag and drop
+// Swap list items that are drag-and-drop
 function swapItems(from, to) {
   const itemOne = listItems[from].querySelector('.draggable');
   const itemTwo = listItems[to].querySelector('.draggable');
@@ -86,12 +81,10 @@ function swapItems(from, to) {
 }
 
 function dragEnter() {
-  // log('Event: ', 'dragEnter');
   this.classList.add('over');
 }
 
 function dragLeave() {
-  // log('Event: ', 'dragLeave');
   this.classList.remove('over');
 }
 
