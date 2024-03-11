@@ -108,6 +108,7 @@ svg {
 
 .check-btn:active {
   transform: scale(0.98);
+  transition: transform 200ms ease;
 }
 
 .check-btn svg {
